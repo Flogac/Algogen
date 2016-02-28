@@ -1,5 +1,7 @@
 package pobj.algogen;
 import java.util.Arrays;
+
+import pobj.algogen.doubles.IndividuDouble;
 public class PopulationArray {
      
     /**
@@ -7,7 +9,7 @@ public class PopulationArray {
      */
  
     private static final int POP_SIZE = 20;
-    private Individu[] individus;
+    private IIndividu[] individus;
     private int size = 0;
      
     /**
@@ -15,7 +17,7 @@ public class PopulationArray {
      */
  
     public PopulationArray() {
-        individus = new Individu [POP_SIZE];
+        individus = new IIndividu [POP_SIZE];
     }
      
     /**
@@ -24,9 +26,9 @@ public class PopulationArray {
      */
      
     public PopulationArray(int POP_SIZE) {
-        individus = new Individu [POP_SIZE];
+        individus = new IIndividu [POP_SIZE];
         for (int i = 0; i < POP_SIZE; i++){
-            Individu I = new Individu();
+            IIndividu I = new IndividuDouble();
             add(I);
 //          System.out.println(I);
         }
@@ -36,7 +38,7 @@ public class PopulationArray {
      * @return the current size of the population
      */
      
-    public int size() {
+    public int getSize() {
         return size;
     }
      
@@ -45,7 +47,7 @@ public class PopulationArray {
      * @param individu to add
      */
      
-    public void add(Individu individu) {
+    public void add(IIndividu individu) {
         if (size < individus.length) {
             individus[size] = individu;
             size ++;
